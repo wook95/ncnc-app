@@ -1,0 +1,15 @@
+@import '@/styles/variable.scss';
+
+.container {
+  background: $container-bg;
+  width: 100%;
+  max-width: 375px;
+  height: 100vh;
+  overflow: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+}
