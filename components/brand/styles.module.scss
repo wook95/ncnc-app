@@ -1,0 +1,51 @@
+@import "@/styles/variable.scss";
+
+.nav-bar {
+  height: 4rem;
+  width: 100vw;
+  background-color: white;
+}
+
+.main-wrapper {
+  max-width: 375px;
+  flex-wrap: wrap;
+  display: flex;
+  margin: 1.7rem 1.7rem 0 1.7rem;
+}
+
+// 삭제예정
+.grid-wrapper {
+  width: 11.2rem;
+  border-radius: 0.5rem;
+  margin: 0.1rem;
+  background: $white;
+  &:nth-child(3n + 1) {
+    margin-left: 0;
+  }
+  &:nth-child(3n + 0) {
+    margin-right: 0;
+  }
+  &:nth-last-child(-n + 3) {
+    margin-bottom: 0;
+  }
+  &:nth-child(-n + 3) {
+    margin-top: 0;
+  }
+  &:nth-child(3n + 2) {
+    width: 11.2rem;
+  }
+}
+
+.brand-img {
+  display: flex;
+  justify-content: center;
+  margin: 1.7rem 0 1.5rem 0;
+}
+
+.brand-name {
+  font-weight: 500;
+  size: 1.2rem;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 1.3rem;
+}
