@@ -7,6 +7,7 @@
   height: 10.762rem;
 
   margin: 0 0 0.1rem 0;
+  padding: 1.7rem;
 
   background-color: $white;
 
@@ -14,15 +15,13 @@
     width: 7.4rem;
     height: 7.4rem;
 
-    margin: 1.7rem 0 0 1.7rem;
-
     border-radius: 5px;
     background-color: $container_bg;
     //background-color: transparent;
   }
 
   .info {
-    margin: 2rem 0 0 1.7rem;
+    margin: 0.3rem 0 0 1.7rem;
 
     .store {
       font-family: sans-serif;
