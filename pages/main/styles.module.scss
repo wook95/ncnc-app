@@ -1,0 +1,37 @@
+@import "@/styles/variable.scss";
+
+.carousel {
+  width: 100%;
+  height: 14.1rem;
+
+  background-color: red;
+}
+
+.category {
+  width: 100%;
+  height: 28.2rem;
+
+  margin: 1.594rem 0 2.89rem 0;
+
+  background-color: blue;
+}
+
+.text-box {
+  margin: 0 1.7rem 1.395rem 1.7rem;
+
+  .title {
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    color: $black;
+  }
+
+  .highlight {
+    margin: 0 0 0.498rem 0;
+
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.2;
+    color: $highlight;
+  }
+}
