@@ -12,10 +12,6 @@ interface BrandMainProps {
 }
 
 const BrandsItem = ({ conCategory1, category, params }: BrandMainProps) => {
-  console.log(conCategory1);
-  console.log("cate", category);
-  console.log(params);
-  console.log(category.conCategory1s.find((item) => item.id === params)?.name);
   return (
     <>
       <DefaultHeader
