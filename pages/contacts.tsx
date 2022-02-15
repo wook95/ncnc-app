@@ -13,12 +13,12 @@ function Contacts({ types, items }: { types: Category[]; items: ItemsObject }) {
   const [tab, setTab] = useState(types[0].key);
 
   return (
-    <main>
+    <>
       <DefaultHeader title='고객센터' />
       <FaqHeader />
       <TabToggle tabs={types} activeTab={tab} setTab={setTab} />
       <FaqDropdown activeTab={tab} items={items} />
-    </main>
+    </>
   );
 }
 
