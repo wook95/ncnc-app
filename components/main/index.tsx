@@ -15,7 +15,6 @@ interface HomeProps {
 const cx = classNames.bind(styles);
 
 const Main = ({ saleItem, category }: HomeProps): JSX.Element => {
-  console.log(category);
   return (
     <div>
       <Carousel />

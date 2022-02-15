@@ -1,9 +1,10 @@
 import classNames from "classnames/bind";
 import { ConCategory2 } from "@/types/brandList";
 
+import DefaultHeader from "@/components/headers/default-header";
 import styles from "./styles.module.scss";
 import BrandCategory from "@/components/brand/brand-category";
-import BrandGrid from "../brand-grid";
+import BrandGrid from "@/components/brand/brand-grid";
 import { CategoryType } from "@/types/category";
 
 interface BrandMainProps {
@@ -23,6 +24,7 @@ const Brand = ({
 
   return (
     <div>
+      <DefaultHeader />
       <div className={cx("nav-bar")}>
         {category.conCategory1s.map((sort, sortIdx) => {
           return (

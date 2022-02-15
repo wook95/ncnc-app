@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from "next";
+import { GetServerSideProps } from "next";
 import Brand from "@/components/brand/brand-main";
 import { ConCategory1 } from "@/types/brandList";
 import { CategoryType } from "@/types/category";
