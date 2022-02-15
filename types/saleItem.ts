@@ -1,4 +1,8 @@
 export type SaleItemType = {
+  conItems: ConItems[];
+};
+
+export type ConItems = {
   id: number;
   name: string;
   originalPrice: number;

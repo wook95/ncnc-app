@@ -2,36 +2,41 @@ import HomeHeader from "@/components/headers/home-header";
 import Main from "@/components/main";
 
 import { useDrawer } from "@/context/DrawerContext";
-import { getSaleItem } from "@/lib/home-api";
+import { getCategory, getSaleItem } from "@/lib/home-api";
+import { CategoryType } from "@/types/category";
 import { SaleItemType } from "@/types/saleItem";
 import { GetServerSideProps, NextPage } from "next";
 
 interface SaleItemProps {
-  conItems: SaleItemType[];
+  saleItem: SaleItemType;
+  category: CategoryType;
 }
 
-const Home: NextPage<SaleItemProps> = ({ conItems }: SaleItemProps) => {
+const Home: NextPage<SaleItemProps> = ({
+  saleItem,
+  category,
+}: SaleItemProps) => {
   const { toggleDrawer } = useDrawer();
   return (
     <>
       <HomeHeader toggleDrawer={toggleDrawer} />
-      <Main conItems={conItems} />;
+      <Main saleItem={saleItem} category={category} />;
     </>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  try {
-    const { data } = await getSaleItem();
-    console.log(data);
-    return {
-      props: { conItems: data.conItems },
-    };
-  } catch (e) {
-    return {
-      props: {},
-    };
-  }
+  const saleItem = await getSaleItem();
+  const category = await getCategory();
+
+  console.log(saleItem.data);
+  console.log(category.data);
+  return {
+    props: {
+      saleItem: saleItem.data,
+      category: category.data,
+    },
+  };
 };
 
 export default Home;
