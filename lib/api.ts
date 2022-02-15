@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { ItemDetailType } from '@/types/productDetail';
 
-const API = axios.create({ baseURL: 'https://api2.ncnc.app' });
+const DETAIL_ITEM_URL = 'https://api2.ncnc.app/con-items';
 
-export const getProductDetail = (conItemId: number) =>
-  API.get<{ conItem: ItemDetailType }>(`con-items/${conItemId}`);
+export const getProductDetail = async (conItemId: number) => {
+  const response = await axios.get<{ conItem: ItemDetailType }>(`${DETAIL_ITEM_URL}/${conItemId}`);
+  return response;
+};
