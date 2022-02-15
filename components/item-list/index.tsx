@@ -4,18 +4,24 @@ import ItemBox from "@/components/item-box";
 
 import styles from "@/components/item-list/styles.module.scss";
 import { calcDiscountRate } from "utils/calcDiscountRate";
-import { starbucksItem } from "constants/mock";
+import { BrandItemType } from "@/types/brandItem";
+
+interface ItemListProps {
+  brandItem: BrandItemType;
+}
 
 const cx = classNames.bind(styles);
 
-const ItemList = (): JSX.Element => {
+const ItemList = (props: ItemListProps): JSX.Element => {
+  const { brandItem } = props;
   return (
     <div>
       <div className={cx("top")}>
-        <span className={cx("count")}>{starbucksItem.length}</span>개의 상품
+        <span className={cx("count")}>{brandItem.conItems.length}</span>개의
+        상품
       </div>
 
-      {starbucksItem.map((item, idx) => (
+      {brandItem.conItems.map((item, idx) => (
         <ItemBox
           key={idx}
           name={item.name}
