@@ -1,0 +1,19 @@
+@import '@/styles/variable.scss';
+
+.faq-header {
+  background-color: $white;
+  margin: 1rem 0;
+  padding: 1.6rem 1.6rem 0;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.faq-header-title {
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+
+.faq-toggle-buttons {
+  display: flex;
+}

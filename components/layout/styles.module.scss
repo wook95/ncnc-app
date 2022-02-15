@@ -2,14 +2,18 @@
 
 .container {
   width: 100%;
-  max-width: 672px;
+  max-width: $container-width;
   height: 100vh;
   overflow: auto;
-  background: $container-bg;
+  position: relative;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.header {
-  display: flex;
-  justify-content: center;
-  font-weight: 700;
+.container.hide {
+  overflow: hidden;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
 }
