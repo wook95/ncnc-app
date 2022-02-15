@@ -4,7 +4,6 @@ const cx = classNames.bind(styles);
 
 interface BrandCategoryProps {
   name: string;
-  setCurCategoryIdx: (curCategory: number) => void;
 }
 
 const BrandCategory = (props: BrandCategoryProps): JSX.Element => {
@@ -12,7 +11,7 @@ const BrandCategory = (props: BrandCategoryProps): JSX.Element => {
     <button
       className={cx("nav-button")}
       onClick={() => {
-        props.setCurCategoryIdx(props.sortIdx);
+        console.log("버튼 클릭시 링크");
       }}
     >
       {props.name}

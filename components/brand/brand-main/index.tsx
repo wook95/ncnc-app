@@ -27,6 +27,9 @@ const Brand = ({ conCategory1, category }: BrandMainProps): JSX.Element => {
         })}
       </div>
       <div className={cx("main-wrapper")}>
+        {/* 
+        삭제 예정 - 경은님 설명
+        다음과 같이 name, imageUrl을 넣어주면 된다. */}
         {BrandValues.map((store, storeIdx) => (
           <BrandGrid
             key={storeIdx}
