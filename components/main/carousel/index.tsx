@@ -1,46 +1,73 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import classNames from "classnames/bind";
 
 import styles from "@/components/main/carousel/styles.module.scss";
-import bannerList from "constants/banner";
+import bannerList, { fakeBanner } from "constants/banner";
+import CarouselBtn from "./carousel-btn";
 
 const cx = classNames.bind(styles);
 
-const bannerLength = [2, 1, 0];
-
 const Carousel = (): JSX.Element => {
   const [bannerActive, setBannerActive] = useState(0);
+  const [speed, setSpeed] = useState(300);
 
-  const clickBannerBtn = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const moveBannerBtn = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setSpeed(300);
     setBannerActive(Number(e.currentTarget.value));
   };
 
+  const moveBannerRight = () => {
+    if (bannerActive + 1 >= bannerList.length) {
+      setBannerActive(bannerList.length);
+
+      setTimeout(() => {
+        setSpeed(0);
+        setBannerActive(0);
+      }, 200);
+    } else {
+      setSpeed(300);
+      setBannerActive(bannerActive + 1);
+    }
+  };
+
+  useEffect(() => {
+    const loop = setInterval(() => {
+      moveBannerRight();
+    }, 4000);
+
+    return () => clearInterval(loop);
+  });
+
   return (
     <div className={cx("box")}>
-      <div className={cx("carousel")} style={{}}>
-        {bannerList.map((item, idx) => (
+      <div
+        className={cx("carousel")}
+        style={{
+          transform: `translateX(-${
+            bannerActive * (100 / (bannerList.length + 1))
+          }%)`,
+          transitionDuration: `${speed}ms`,
+        }}
+      >
+        {[...bannerList, fakeBanner].map((item, idx) => (
           <div key={idx} className={cx("banner")}>
             <Image
               className={cx("img")}
               src={item}
               layout="fill"
               objectFit="cover"
+              priority={true}
               alt="banner"
             />
           </div>
         ))}
       </div>
-      {bannerLength.map((v, idx) => (
-        <button
-          key={idx}
-          className={cx({ btn: true, active: bannerActive === v })}
-          type="button"
-          onClick={clickBannerBtn}
-          value={v}
-          style={{ right: `${(idx + 1) * 2}rem` }}
-        />
-      ))}
+      <CarouselBtn
+        bannerLen={bannerList.length}
+        active={bannerActive}
+        onClick={moveBannerBtn}
+      />
     </div>
   );
 };

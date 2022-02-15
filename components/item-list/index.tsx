@@ -12,10 +12,11 @@ const ItemList = (): JSX.Element => {
   return (
     <div>
       <div className={cx("top")}>
-        <span className={cx("count")}>{starbucksItem.length}</span>개의 상품
+        <span className={cx("count")}>{starbucksItem.conItems.length}</span>개의
+        상품
       </div>
 
-      {starbucksItem.map((item, idx) => (
+      {starbucksItem.conItems.map((item, idx) => (
         <ItemBox
           key={idx}
           name={item.name}
