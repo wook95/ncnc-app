@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import classNames from 'classnames/bind';
 
-import { ItemDetailType } from '@/types/productDetail';
-import styles from '@/components/item-detail/styles.module.scss';
-import ItemBox from '../item-box';
+import DefaultHeader from '@/components/headers/default-header';
+import CloseIcon from '@/components/icons/CloseIcon';
+import PencilIcon from '@/components/icons/PencilIcon';
+import ItemBox from '@/components/item-box';
+
+import { ItemDetailType, OptionType } from '@/types/productDetail';
 import { calcDiscountRate } from '@/utils/calcDiscountRate';
 import { addComma } from '@/utils/addComma';
+import styles from '@/components/item-detail/styles.module.scss';
+import { useRouter } from 'next/router';
 
 interface ItemDetailProps {
   conItem: ItemDetailType;
@@ -15,8 +20,28 @@ const cx = classNames.bind(styles);
 
 const ItemDetail = ({ conItem }: ItemDetailProps): JSX.Element => {
   const [isActive, setIsActive] = useState(false);
-  const openOption = () => setIsActive(true);
-  const closeOption = () => setIsActive(false);
+  const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
+  const router = useRouter();
+
+  const openOption = () => {
+    setIsActive(true);
+    setSelectedOption(null);
+  };
+
+  const closeOption = () => {
+    setIsActive(false);
+    setSelectedOption(null);
+  };
+
+  const chooseOption = ({ expireAt, count, sellingPrice }: OptionType) => {
+    setSelectedOption({ expireAt, count, sellingPrice });
+    setIsActive(false);
+  };
+
+  const buyItem = () => {
+    alert('로그인을 해주세요!');
+    router.push('/');
+  };
 
   const newOptions = conItem.options.map((option, idx) => {
     return (option = {
@@ -33,10 +58,11 @@ const ItemDetail = ({ conItem }: ItemDetailProps): JSX.Element => {
 
   return (
     <div className={cx('container')}>
-      <nav className={cx('nav')}>네브바</nav>
+      <DefaultHeader />
       <main className={cx('content-wrapper')}>
         <ItemBox
           name={conItem.name}
+          store={conItem.conCategory2.name}
           discount={conItem.discountRate}
           price={conItem.minSellingPrice}
           original={conItem.originalPrice}
@@ -57,12 +83,24 @@ const ItemDetail = ({ conItem }: ItemDetailProps): JSX.Element => {
         <div className={cx('option-box')}>
           <div className={cx('option-header')}>
             옵션 선택하기
-            <p>X</p>
+            <button type='button' onClick={closeOption}>
+              <CloseIcon className={cx('close-icon')} />
+            </button>
           </div>
           <ul>
             {newOptions.map(option => (
               <li key={option.id}>
-                <button type='button' className={cx('option-each')}>
+                <button
+                  type='button'
+                  className={cx('option-each')}
+                  onClick={() => {
+                    chooseOption({
+                      expireAt: option.expireAt,
+                      count: option.count,
+                      sellingPrice: option.sellingPrice,
+                    });
+                  }}
+                >
                   <div className={cx('option-contents')}>
                     <div className={cx('option-content')}>
                       <p className={cx('option-content-title')}>유효기간</p>
@@ -82,7 +120,20 @@ const ItemDetail = ({ conItem }: ItemDetailProps): JSX.Element => {
           </ul>
         </div>
       </section>
-      <button type='button' onClick={openOption} className={cx('select-button')}>
+      <button onClick={buyItem} type='button' className={cx('select-button', 'purchase-button')}>
+        {PURCHASE_MESSAGE}
+      </button>
+      <section className={cx('option-selected-box', { 'ready-buy': selectedOption })}>
+        <button type='button' onClick={openOption} className={cx('re-select')}>
+          {selectedOption && `${selectedOption.expireAt} / ${selectedOption.sellingPrice}원`}
+          <PencilIcon className={cx('pencil-icon')} />
+        </button>
+      </section>
+      <button
+        type='button'
+        onClick={openOption}
+        className={cx('select-button', { 'cant-buy': isActive, hide: selectedOption })}
+      >
         {isActive ? PURCHASE_MESSAGE : SELECT_OPTION_MESSAGE}
       </button>
       <section className={cx('option-background', { hide: !isActive })}>
