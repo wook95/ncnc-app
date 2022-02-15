@@ -1,0 +1,50 @@
+@import '@/styles/variable.scss';
+
+.question {
+  padding: 1.5rem 1.7rem;
+  position: relative;
+  font-size: 1.5rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.question-bullet {
+  color: $highlight;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  align-self: flex-start;
+}
+
+.question-text {
+  flex-grow: 1;
+  text-align: left;
+  margin-right: 2rem;
+  align-self: flex-start;
+  word-break: keep-all;
+}
+
+.question-icon {
+  transition: all 200ms ease;
+}
+
+.question-icon.open {
+  transform: rotate(180deg);
+}
+
+.answer {
+  display: none;
+  font-size: 1.5rem;
+  background-color: $container-bg;
+  padding: 1.7rem;
+  transition: height 200ms ease;
+  word-break: keep-all;
+}
+
+.answer.open {
+  display: block;
+}

@@ -19,7 +19,7 @@
 
 .drawer-header {
   height: 5rem;
-  background-color: $white-bg;
+  background-color: $white;
 
   position: relative;
   display: flex;
@@ -52,7 +52,7 @@
 
 .customer-center-button {
   margin: 1rem 0;
-  background-color: $white-bg;
+  background-color: $white;
   height: 50px;
   width: 100%;
 
@@ -63,7 +63,7 @@
 }
 
 .empty {
-  background-color: $white-bg;
+  background-color: $white;
   min-height: 1px;
   flex-grow: 1;
 }

@@ -1,28 +1,32 @@
+import Head from 'next/head';
 import classNames from 'classnames/bind';
 
-import Header from '@/components/header';
 import DrawerMenu from '@/components/drawer-menu';
 
+import { useDrawer } from '@/context/DrawerContext';
 import styles from '@/components/layout/styles.module.scss';
-import { Dispatch, SetStateAction } from 'react';
 
 const cx = classNames.bind(styles);
 
-function Layout({
-  drawerOpen,
-  setDrawerOpen,
-  children,
-}: {
-  drawerOpen: boolean;
-  setDrawerOpen: Dispatch<SetStateAction<boolean>>;
-  children: React.ReactNode;
-}) {
+function Layout({ children }: { children: React.ReactNode }) {
+  const { drawerOpen } = useDrawer();
+
+  const className = cx({
+    container: true,
+    hide: drawerOpen,
+  });
+
   return (
-    <main className={cx('container')}>
-      <Header setDrawerOpen={setDrawerOpen} />
-      {children}
-      <DrawerMenu drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
-    </main>
+    <>
+      <Head>
+        <title>니콘내콘</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+      </Head>
+      <main className={className}>
+        {children}
+        <DrawerMenu />
+      </main>
+    </>
   );
 }
 

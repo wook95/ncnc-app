@@ -1,20 +1,17 @@
 import Link from 'next/link';
-import { Dispatch, SetStateAction } from 'react';
 import classNames from 'classnames/bind';
 
+import SidebarHeader from '@/components/headers/sidebar-header';
+
+import { useDrawer } from '@/context/DrawerContext';
 import styles from '@/components/drawer-menu/styles.module.scss';
-import CloseIcon from '@/components/icons/CloseIcon';
-import ChevronLeftIcon from '@/components/icons/ChevronLeftIcon';
+import ChevronRightIcon from '@/components/icons/ChevronRightIcon';
 
 const cx = classNames.bind(styles);
 
-function DrawerMenu({
-  drawerOpen,
-  setDrawerOpen,
-}: {
-  drawerOpen: boolean;
-  setDrawerOpen: Dispatch<SetStateAction<boolean>>;
-}) {
+function DrawerMenu() {
+  const { drawerOpen, toggleDrawer } = useDrawer();
+
   const drawerClassName = cx({
     drawer: true,
     open: drawerOpen,
@@ -22,17 +19,14 @@ function DrawerMenu({
 
   return (
     <aside className={drawerClassName}>
-      <header className={cx('drawer-header')}>
-        <button type='button' onClick={() => setDrawerOpen((prev) => !prev)}>
-          <CloseIcon className={cx('close-icon')} />
-        </button>
-        마이 페이지
-      </header>
+      <SidebarHeader title='마이 페이지' />
       <section className={cx('drawer-contents')}>
-        <button type='button' className={cx('customer-center-button')}>
-          <span>고객 센터</span>
-          <ChevronLeftIcon />
-        </button>
+        <Link href='/contacts'>
+          <a className={cx('customer-center-button')} onClick={toggleDrawer}>
+            <span>고객 센터</span>
+            <ChevronRightIcon />
+          </a>
+        </Link>
         <div className={cx('empty')}></div>
       </section>
     </aside>
