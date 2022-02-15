@@ -1,14 +1,19 @@
-import "@/styles/_globals.scss";
 import type { AppProps } from "next/app";
-import BrandGrid from "@/components/brand/brand-main/index";
+
+import { DrawerContextProvider } from "@/context/DrawerContext";
+
 import Layout from "@/components/layout";
+import BrandGrid from "@/components/brand/brand-main";
+import "@/styles/_globals.scss";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-      <BrandGrid {...pageProps} />
-    </Layout>
+    <DrawerContextProvider>
+      <Layout>
+        <Component {...pageProps} />
+        <BrandGrid {...pageProps} />
+      </Layout>
+    </DrawerContextProvider>
   );
 }
 
