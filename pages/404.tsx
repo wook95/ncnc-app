@@ -1,9 +1,7 @@
+import Custom404Component from '@/components/404';
+
 function Custom404() {
-  return (
-    <section>
-      <p>Oops. The page you&#39;re looking for doesn&#39;t exist.</p>
-    </section>
-  );
+  return <Custom404Component />;
 }
 
 export default Custom404;

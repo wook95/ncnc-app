@@ -1,0 +1,29 @@
+.box {
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+
+  width: calc(100% * 4);
+  height: 14.1rem;
+
+  transform: translateX(0rem);
+  transition-property: transform;
+  transition-duration: 300ms;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 14.1rem;
+}
+
+.img {
+  -webkit-user-drag: none;
+}
