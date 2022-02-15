@@ -18,20 +18,20 @@
 
 .text-box {
   margin: 0 1.7rem 1.395rem 1.7rem;
+}
 
-  .title {
-    font-weight: 600;
-    font-size: 1.6rem;
-    line-height: 1.2;
-    color: $black;
-  }
+.title {
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  color: $black;
+}
 
-  .highlight {
-    margin: 0 0 0.498rem 0;
+.highlight {
+  margin: 0 0 0.498rem 0;
 
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 1.2;
-    color: $highlight;
-  }
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.2;
+  color: $highlight;
 }

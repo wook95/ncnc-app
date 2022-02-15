@@ -24,7 +24,7 @@ const ItemBox = (props: ItemBoxProps): JSX.Element => {
 
   return (
     <div className={cx("box")}>
-      <img src={image} alt="discount_product" />
+      <img className={cx("img")} src={image} alt="discount_product" />
       <div className={cx("info")}>
         {store && <div className={cx("store")}>{store}</div>}
         <div className={ProductNameStyle}>{name}</div>
