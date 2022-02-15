@@ -1,11 +1,11 @@
 @import '@/styles/variable.scss';
 
 .container {
-  background: $container-bg;
   width: 100%;
-  max-width: 375px;
+  max-width: 672px;
   height: 100vh;
   overflow: auto;
+  background: $container-bg;
 }
 
 .header {
