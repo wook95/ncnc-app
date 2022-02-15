@@ -7,7 +7,6 @@ const Home = () => {
   return (
     <>
       <HomeHeader toggleDrawer={toggleDrawer} />
-      <div>원티드 프리온보딩 더블엔씨 과제</div>;
     </>
   );
 };
