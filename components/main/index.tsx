@@ -6,7 +6,8 @@ import Carousel from "@/components/main/carousel";
 import styles from "@/components/main/styles.module.scss";
 import { SaleItemType } from "@/types/saleItem";
 import { CategoryType } from "@/types/category";
-// import BrandGrid from "../brand/brand-grid";
+import BrandGrid from "@/components/brand/brand-grid";
+import Link from "next/link";
 
 interface HomeProps {
   saleItem: SaleItemType;
@@ -20,9 +21,18 @@ const Main = ({ saleItem, category }: HomeProps): JSX.Element => {
     <div>
       <Carousel />
       <div className={cx("category")}>
-        {/*category.conCategory1s.map((item, idx) => (
-          <BrandGrid key={idx} name={item.name} imageUrl={item.imageUrl} />
-        ))*/}
+        {category.conCategory1s.map((item, idx) => (
+          <Link
+            key={idx}
+            href={{
+              pathname: `/categories/${item.id}`,
+            }}
+          >
+            <a className={cx("link")}>
+              <BrandGrid name={item.name} imageUrl={item.imageUrl} />
+            </a>
+          </Link>
+        ))}
       </div>
       <div>
         <div className={cx("text-box")}>

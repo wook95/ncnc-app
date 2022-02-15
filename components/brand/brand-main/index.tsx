@@ -1,14 +1,15 @@
 import classNames from "classnames/bind";
-import { ConCategory2 } from "@/types/brandList";
+import { ConCategory1 } from "@/types/brandList";
 
-import DefaultHeader from "@/components/headers/default-header";
 import styles from "./styles.module.scss";
 import BrandCategory from "@/components/brand/brand-category";
 import BrandGrid from "@/components/brand/brand-grid";
 import { CategoryType } from "@/types/category";
 
+import { useRouter } from "next/router";
+
 interface BrandMainProps {
-  conCategory1: ConCategory2;
+  conCategory1: ConCategory1[];
   category: CategoryType;
   params: number;
 }
@@ -20,11 +21,10 @@ const Brand = ({
   category,
   params,
 }: BrandMainProps): JSX.Element => {
-  const BrandValues = Object.entries(conCategory1);
+  const router = useRouter();
 
   return (
     <div>
-      <DefaultHeader />
       <div className={cx("nav-bar")}>
         {category.conCategory1s.map((sort, sortIdx) => {
           return (
@@ -38,12 +38,23 @@ const Brand = ({
         })}
       </div>
       <div className={cx("main-wrapper")}>
-        {BrandValues.map((store, storeIdx) => (
-          <BrandGrid
+        {conCategory1.map((store, storeIdx) => (
+          <button
             key={storeIdx}
-            name={store[1].name}
-            imageUrl={store[1].imageUrl}
-          />
+            className={cx("link")}
+            type="button"
+            onClick={() => {
+              router.push(
+                {
+                  pathname: "/brands/[id]",
+                  query: { id: store.id, categoryId: params },
+                },
+                `/brands/${store.id}`
+              );
+            }}
+          >
+            <BrandGrid name={store.name} imageUrl={store.imageUrl} />
+          </button>
         ))}
       </div>
     </div>
