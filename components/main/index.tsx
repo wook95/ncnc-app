@@ -51,6 +51,14 @@ const Main = ({ saleItem, category }: HomeProps): JSX.Element => {
           />
         ))}
       </div>
+      <div className={cx("footer")}>
+        회사소개서
+        <br />
+        사업/제휴 문의
+        <br />
+        개인정보처리방침
+        <div className={cx("footer-title")}>(주) 더블엔씨</div>
+      </div>
     </div>
   );
 };

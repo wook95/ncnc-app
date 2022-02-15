@@ -1,20 +1,17 @@
-import type { GetServerSideProps, NextPage } from "next";
-import ItemList from "@/components/item-list";
-import DefaultHeader from "@/components/headers/default-header";
-import { ConCategory2 } from "@/types/brand";
+import type { NextPage } from "next";
 import { useRouter } from "next/router";
 
-interface BrandsItemProps {
-  brandItem: ConCategory2;
-}
+import DefaultHeader from "@/components/headers/default-header";
+import ItemList from "@/components/item-list";
 
 const BrandsItem: NextPage = () => {
   const router = useRouter();
-  console.log(router);
+  const object = router.query.brandItem as string;
+
   return (
     <>
-      <DefaultHeader />
-      {/*<ItemList brandItem={brandItem} />*/}
+      <DefaultHeader title={JSON.parse(object).name} />
+      <ItemList brandItem={JSON.parse(object)} />
     </>
   );
 };

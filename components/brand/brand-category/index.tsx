@@ -18,7 +18,7 @@ const BrandCategory = (props: BrandCategoryProps): JSX.Element => {
         active: props.params === props.id,
       })}
     >
-      <Link href={`http://localhost:3000/categories/${props.id}`}>
+      <Link href={`/categories/${props.id}`}>
         <a> {props.name}</a>
       </Link>
     </button>

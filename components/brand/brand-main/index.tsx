@@ -47,7 +47,11 @@ const Brand = ({
               router.push(
                 {
                   pathname: "/brands/[id]",
-                  query: { id: store.id, categoryId: params },
+                  query: {
+                    id: store.id,
+                    categoryId: params,
+                    brandItem: JSON.stringify(store),
+                  },
                 },
                 `/brands/${store.id}`
               );
