@@ -90,25 +90,32 @@ const discount = {
   ],
 };
 
-const starbucksItem = [
-  {
-    id: 137,
-    name: "카페아메리카노 T",
-    originalPrice: 4500,
-    minSellingPrice: 3830,
-    count: 15719,
-    imageUrl:
-      "https://d2lfdrnysfmya6.cloudfront.net/032e1a0c-7b3c-4c18-bace-6b4ee09602fb.jpg",
-  },
-  {
-    id: 3308,
-    name: "무료음료쿠폰 Tall (추가결제시 사이즈업가능)",
-    originalPrice: 6300,
-    minSellingPrice: 4850,
-    count: 2609,
-    imageUrl:
-      "https://d2lfdrnysfmya6.cloudfront.net/5090562b-3a37-4bd5-8e75-b0b84c6afd55.jpg",
-  },
-];
+const starbucksItem = {
+  id: 63,
+  name: "스타벅스",
+  conCategory1Id: 67,
+  imageUrl:
+    "https://d1tftw9jjs9bx5.cloudfront.net/aaded704-871d-403a-9f7c-6498f2b57ddf.jpg",
+  conItems: [
+    {
+      id: 137,
+      name: "카페아메리카노 T",
+      originalPrice: 4500,
+      minSellingPrice: 3830,
+      count: 15719,
+      imageUrl:
+        "https://d2lfdrnysfmya6.cloudfront.net/032e1a0c-7b3c-4c18-bace-6b4ee09602fb.jpg",
+    },
+    {
+      id: 3308,
+      name: "무료음료쿠폰 Tall (추가결제시 사이즈업가능)",
+      originalPrice: 6300,
+      minSellingPrice: 4850,
+      count: 2609,
+      imageUrl:
+        "https://d2lfdrnysfmya6.cloudfront.net/5090562b-3a37-4bd5-8e75-b0b84c6afd55.jpg",
+    },
+  ],
+};
 
 export { discount, starbucksItem };
