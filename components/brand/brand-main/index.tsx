@@ -46,7 +46,7 @@ const Brand = ({
             onClick={() => {
               router.push(
                 {
-                  pathname: "/brands/[id]",
+                  pathname: `/brands/${store.id}`,
                   query: {
                     id: store.id,
                     categoryId: params,

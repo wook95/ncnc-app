@@ -10,8 +10,12 @@ const BrandsItem: NextPage = () => {
 
   return (
     <>
-      <DefaultHeader title={JSON.parse(object).name} />
-      <ItemList brandItem={JSON.parse(object)} />
+      {object && (
+        <>
+          <DefaultHeader title={JSON.parse(object).name} />
+          <ItemList brandItem={JSON.parse(object)} />
+        </>
+      )}
     </>
   );
 };
