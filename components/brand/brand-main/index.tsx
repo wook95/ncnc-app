@@ -1,3 +1,4 @@
+import { useState } from "react";
 import classNames from "classnames/bind";
 import { ConCategory2 } from "@/types/brandList";
 
@@ -10,26 +11,35 @@ import { CategoryType } from "@/types/category";
 interface BrandMainProps {
   conCategory1: ConCategory2;
   category: CategoryType;
+  params: number;
 }
 
 const cx = classNames.bind(styles);
 
-const Brand = ({ conCategory1, category }: BrandMainProps): JSX.Element => {
+const Brand = ({
+  conCategory1,
+  category,
+  params,
+}: BrandMainProps): JSX.Element => {
   const BrandValues = Object.entries(conCategory1);
-  console.log("카테고리이다.");
-  console.log(category.conCategory1s);
 
   return (
     <div>
       <div className={cx("nav-bar")}>
+        {console.log(params)}
         {category.conCategory1s.map((sort, sortIdx) => {
-          return <BrandCategory key={sortIdx} name={sort.name} />;
+          console.log(sort);
+          return (
+            <BrandCategory
+              key={sortIdx}
+              name={sort.name}
+              id={sort.id}
+              params={params}
+            />
+          );
         })}
       </div>
       <div className={cx("main-wrapper")}>
-        {/* 
-        삭제 예정 - 경은님 설명
-        다음과 같이 name, imageUrl을 넣어주면 된다. */}
         {BrandValues.map((store, storeIdx) => (
           <BrandGrid
             key={storeIdx}

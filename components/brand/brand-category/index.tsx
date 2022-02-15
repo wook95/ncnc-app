@@ -1,20 +1,26 @@
+import Link from "next/link";
 import classNames from "classnames/bind";
+
 import styles from "./styles.module.scss";
 const cx = classNames.bind(styles);
 
 interface BrandCategoryProps {
   name: string;
+  id: number;
+  params: number;
 }
 
 const BrandCategory = (props: BrandCategoryProps): JSX.Element => {
   return (
     <button
-      className={cx("nav-button")}
-      onClick={() => {
-        console.log("버튼 클릭시 링크");
-      }}
+      className={cx({
+        "nav-button": true,
+        active: props.params === props.id,
+      })}
     >
-      {props.name}
+      <Link href={`http://localhost:3000/categories/${props.id}`}>
+        <a> {props.name}</a>
+      </Link>
     </button>
   );
 };
