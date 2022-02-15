@@ -6,11 +6,8 @@ class MyDocument extends Document {
     return (
       <Html lang='ko'>
         <Head>
-          <link
-            href='//db.onlinewebfonts.com/c/67680f2eb947c5cbd58b40961b4a61e9?family=Apple+SD+Gothic+Neo'
-            rel='stylesheet'
-            type='text/css'
-          />
+          <meta charSet='utf-8' />
+          <meta name='description' content='NCNC app clone' />
         </Head>
         <body>
           <Main />

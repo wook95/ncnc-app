@@ -1,0 +1,17 @@
+@import '@/styles/variable.scss';
+
+.toggle-button {
+  flex: 1 1;
+
+  color: $gray;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.7;
+  padding: 1.1rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.toggle-button.active {
+  color: $highlight;
+  border-bottom-color: $highlight;
+}

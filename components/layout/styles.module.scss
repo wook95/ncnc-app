@@ -3,13 +3,18 @@
 .container {
   background: $container-bg;
   width: 100%;
-  max-width: 375px;
+  max-width: $container-width;
   height: 100vh;
   overflow: auto;
+  position: relative;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.header {
-  display: flex;
-  justify-content: center;
-  font-weight: 700;
+.container.hide {
+  overflow: hidden;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
 }
