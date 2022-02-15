@@ -15,19 +15,26 @@ $button-height: 5.5rem;
   align-items: center;
   font-size: 2rem;
   height: 5.8rem;
-  background-color: aliceblue;
+  background-color: #edf9fe;
+  border-bottom: 1px solid $gray300;
   z-index: 2;
-}
-
-.image-box {
-  display: flex;
-  align-items: center;
-
-  justify-content: flex-start;
 }
 
 .content-box {
   white-space: pre;
+  padding: 2rem 2rem 0;
+  border-top: 1px solid $body-bg;
+}
+
+.content-title {
+  margin-bottom: 0.5rem;
+  color: $gray800;
+  font-size: 1.4rem;
+}
+.content-paragraph {
+  margin-bottom: 2rem;
+  color: $gray600;
+  font-size: 1.4rem;
 }
 
 .option-section {
@@ -41,12 +48,73 @@ $button-height: 5.5rem;
 }
 
 .option-section.hide {
-  bottom: -60%;
+  bottom: -150%;
 }
 
 .option-box {
   display: flex;
   flex-direction: column;
+  max-height: 50rem;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0.4rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $gray300;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    border: 2px solid $gray600;
+  }
+}
+
+.option-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: $gray300;
+  font-size: 1.4rem;
+}
+
+.option-each {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid $gray300;
+}
+
+.option-contents {
+  display: flex;
+}
+
+.option-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-right: 1rem;
+}
+
+.option-content-title {
+  color: $gray600;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+.option-content-detail {
+  color: $gray800;
+  font-size: 1.6rem;
+}
+
+.option-discount {
+  color: $highlight;
+  font-size: 1.7rem;
 }
 
 .select-button {
