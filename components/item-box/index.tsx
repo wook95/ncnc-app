@@ -3,7 +3,7 @@ import classNames from "classnames/bind";
 import styles from "@/components/item-box/styles.module.scss";
 import { addComma } from "utils/addComma";
 
-interface itemBoxProps {
+interface ItemBoxProps {
   name: string;
   store?: string;
   discount: number;
@@ -14,7 +14,7 @@ interface itemBoxProps {
 
 const cx = classNames.bind(styles);
 
-function ItemBox(props: itemBoxProps): JSX.Element {
+const ItemBox = (props: ItemBoxProps): JSX.Element => {
   const { name, store, discount, price, original, image } = props;
 
   const ProductNameStyle = cx({
@@ -36,6 +36,6 @@ function ItemBox(props: itemBoxProps): JSX.Element {
       </div>
     </div>
   );
-}
+};
 
 export default ItemBox;

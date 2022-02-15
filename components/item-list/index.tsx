@@ -1,15 +1,14 @@
-import type { NextPage } from "next";
 import classNames from "classnames/bind";
 
 import ItemBox from "@/components/item-box";
 
-import styles from "@/pages/item-list/styles.module.scss";
+import styles from "@/components/item-list/styles.module.scss";
 import { calcDiscountRate } from "utils/calcDiscountRate";
 import { starbucksItem } from "constants/mock";
 
 const cx = classNames.bind(styles);
 
-const ItemList: NextPage = () => {
+const ItemList = (): JSX.Element => {
   return (
     <div>
       <div className={cx("top")}>
