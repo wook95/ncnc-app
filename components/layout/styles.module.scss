@@ -1,19 +1,28 @@
 @import '@/styles/variable.scss';
 
-.container {
+.outer-container {
   width: 100%;
   max-width: $container-width;
-  height: 100vh;
-  overflow: auto;
   position: relative;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.container.hide {
+  height: 100vh;
   overflow: hidden;
 }
 
-.container::-webkit-scrollbar {
+.inner-container {
+  background: $container-bg;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding-top: 5rem;
+  overflow: scroll;
+}
+
+.inner-container::-webkit-scrollbar {
   display: none;
+}
+
+.inner-container.hide {
+  overflow: hidden;
 }

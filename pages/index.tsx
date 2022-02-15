@@ -1,15 +1,42 @@
-import HomeHeader from '@/components/headers/home-header';
+import HomeHeader from "@/components/headers/home-header";
+import Main from "@/components/main";
 
-import { useDrawer } from '@/context/DrawerContext';
+import { useDrawer } from "@/context/DrawerContext";
+import { getCategory, getSaleItem } from "@/lib/home-api";
+import { CategoryType } from "@/types/category";
+import { SaleItemType } from "@/types/saleItem";
+import { GetServerSideProps, NextPage } from "next";
 
-const Home = () => {
+interface SaleItemProps {
+  saleItem: SaleItemType;
+  category: CategoryType;
+}
+
+const Home: NextPage<SaleItemProps> = ({
+  saleItem,
+  category,
+}: SaleItemProps) => {
   const { toggleDrawer } = useDrawer();
   return (
     <>
       <HomeHeader toggleDrawer={toggleDrawer} />
-      <div>원티드 프리온보딩 더블엔씨 과제</div>;
+      <Main saleItem={saleItem} category={category} />;
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const saleItem = await getSaleItem();
+  const category = await getCategory();
+
+  console.log(saleItem.data);
+  console.log(category.data);
+  return {
+    props: {
+      saleItem: saleItem.data,
+      category: category.data,
+    },
+  };
 };
 
 export default Home;
