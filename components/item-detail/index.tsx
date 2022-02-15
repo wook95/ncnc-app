@@ -22,7 +22,6 @@ const ItemDetail = ({ conItem }: ItemDetailProps): JSX.Element => {
   const [isActive, setIsActive] = useState(false);
   const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
   const router = useRouter();
-
   const openOption = () => {
     setIsActive(true);
     setSelectedOption(null);
@@ -53,8 +52,8 @@ const ItemDetail = ({ conItem }: ItemDetailProps): JSX.Element => {
   });
   const warningArray = conItem.warning.split('\n\n');
   const splitWarningArray = warningArray
-    .map(strings => strings.split(']\n'))
-    .map(strings => (strings = [strings[0].replace('[', ''), strings[1].replaceAll('-', '·')]));
+    ?.map(strings => strings.split(']\n'))
+    ?.map(strings => (strings = [strings[0].replace('[', ''), strings[1]?.replace(/-/g, '·')]));
 
   return (
     <div className={cx('container')}>
