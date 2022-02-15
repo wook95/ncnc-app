@@ -4,10 +4,10 @@ import ItemBox from "@/components/item-box";
 
 import styles from "@/components/item-list/styles.module.scss";
 import { calcDiscountRate } from "utils/calcDiscountRate";
-import { BrandItemType } from "@/types/brandItem";
+import { ConCategory2 } from "@/types/brand";
 
 interface ItemListProps {
-  brandItem: BrandItemType;
+  brandItem: ConCategory2;
 }
 
 const cx = classNames.bind(styles);

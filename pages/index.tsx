@@ -29,8 +29,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const saleItem = await getSaleItem();
   const category = await getCategory();
 
-  console.log(saleItem.data);
-  console.log(category.data);
   return {
     props: {
       saleItem: saleItem.data,
