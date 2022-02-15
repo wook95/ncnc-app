@@ -3,7 +3,6 @@ import type { AppProps } from "next/app";
 import { DrawerContextProvider } from "@/context/DrawerContext";
 
 import Layout from "@/components/layout";
-import BrandGrid from "@/components/brand/brand-main";
 import "@/styles/_globals.scss";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -11,7 +10,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     <DrawerContextProvider>
       <Layout>
         <Component {...pageProps} />
-        <BrandGrid {...pageProps} />
       </Layout>
     </DrawerContextProvider>
   );

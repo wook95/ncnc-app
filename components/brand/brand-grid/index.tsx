@@ -5,7 +5,6 @@ import classNames from "classnames/bind";
 import styles from "./styles.module.scss";
 
 interface BrandGridProps {
-  id: number;
   name: string;
   imageUrl: string;
 }

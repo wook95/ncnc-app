@@ -1,18 +1,20 @@
 import { GetServerSideProps, NextPage } from "next";
 import Brand from "@/components/brand/brand-main";
 import { ConCategory1 } from "@/types/brandList";
+import { CategoryType } from "@/types/category";
 import { getBrandDetail } from "@/lib/brand";
 
 interface BrandMainProps {
   conCategory1: ConCategory1[];
+  category: CategoryType;
 }
 
-const BrandsItem = ({ conCategory1 }: BrandMainProps) => {
-  console.log("con Category입니다.");
-  console.log(conCategory1);
+const BrandsItem = ({ conCategory1, category }: BrandMainProps) => {
+  console.log("카테고리입니다.");
+  console.log(category);
   return (
     <>
-      <Brand conCategory1={conCategory1} />
+      <Brand conCategory1={conCategory1} category={category} />{" "}
     </>
   );
 };

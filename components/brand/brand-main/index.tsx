@@ -15,29 +15,20 @@ interface BrandMainProps {
 }
 
 const Brand = ({ conCategory1 }: BrandMainProps): JSX.Element => {
-  const [curCategoryIdx, setCurCategoryIdx] = useState(0);
-
   const categoryValues = Object.entries(conCategory1);
-
+  console.log("카테고리이다.")
+  console.log(categoryValues);
   return (
     <div>
       <div className={cx("nav-bar")}>
         {brandStores.map((sort, sortIdx) => {
-          return (
-            <BrandCategory
-              key={sortIdx}
-              sortIdx={sortIdx}
-              // name={sort.name}
-              setCurCategoryIdx={setCurCategoryIdx}
-            />
-          );
+          return <BrandCategory key={sortIdx} name={sort.name} />;
         })}
       </div>
       <div className={cx("main-wrapper")}>
         {categoryValues.map((store, storeIdx) => (
           <BrandGrid
             key={storeIdx}
-            id={store[1].id}
             name={store[1].name}
             imageUrl={store[1].imageUrl}
           />
