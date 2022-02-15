@@ -1,9 +1,7 @@
-import { useState } from "react";
 import classNames from "classnames/bind";
 import { ConCategory2 } from "@/types/brandList";
 
 import styles from "./styles.module.scss";
-import { brandStores } from "constants/BRAND_TEST_MOCK";
 import BrandCategory from "@/components/brand/brand-category";
 import BrandGrid from "../brand-grid";
 import { CategoryType } from "@/types/category";
@@ -26,9 +24,7 @@ const Brand = ({
   return (
     <div>
       <div className={cx("nav-bar")}>
-        {console.log(params)}
         {category.conCategory1s.map((sort, sortIdx) => {
-          console.log(sort);
           return (
             <BrandCategory
               key={sortIdx}

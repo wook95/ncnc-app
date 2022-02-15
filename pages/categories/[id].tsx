@@ -30,15 +30,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       params,
     },
   };
-
-  // try {
-  //   const { data } = await getBrandDetail(Number(query.id));
-  //   console.log("데이터이다");
-  //   console.log(data);
-  //   return {
-  //     props: { conCategory1: data.conCategory1.conCategory2s },
-  //   };
-  // }
 };
 
 export default BrandsItem;
