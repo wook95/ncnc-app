@@ -19,6 +19,13 @@ import styles from "@/components/brand/styles.module.scss";
 
 const cx = classNames.bind(styles);
 
+interface Brand {
+  name: string;
+  img: string;
+}
+
+type BrandList = Brand[];
+
 // 테스트 데이터 삭제 예정
 const TEST_DATAS = [
   "스타벅스",
@@ -33,7 +40,7 @@ const TEST_DATAS = [
   "엔젤리너스",
   "풀바셋",
   "쥬씨",
-  "엔젤리너스",
+  "커피 707",
 ];
 
 //테스트 이미지 데이터 삭제 예정
