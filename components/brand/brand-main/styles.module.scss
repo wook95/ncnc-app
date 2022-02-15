@@ -1,7 +1,7 @@
 @import "@/styles/variable.scss";
 
 .nav-bar {
-  background-color: green;
+  background-color: white;
   display: flex;
   width: 100%;
   overflow-x: scroll;
@@ -9,7 +9,7 @@
 
   border-bottom: $gray 0.1rem solid;
   &::-webkit-scrollbar {
-    width: 0;
+    display: none;
   }
 }
 

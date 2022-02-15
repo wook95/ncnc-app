@@ -3,7 +3,7 @@ import styles from "./styles.module.scss";
 const cx = classNames.bind(styles);
 
 interface BrandCategoryProps {
-  name: string;
+  // name: string;
   sortIdx: number;
   setCurCategoryIdx: (curCategory: number) => void;
 }
@@ -16,7 +16,7 @@ const BrandCategory = (props: BrandCategoryProps): JSX.Element => {
         props.setCurCategoryIdx(props.sortIdx);
       }}
     >
-      {props.name}
+      {/* {props.name} */}
     </button>
   );
 };
