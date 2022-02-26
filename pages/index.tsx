@@ -12,7 +12,10 @@ interface SaleItemProps {
   category: CategoryType;
 }
 
-const Home: NextPage<SaleItemProps> = ({ saleItem, category }: SaleItemProps) => {
+const Home: NextPage<SaleItemProps> = ({
+  saleItem,
+  category,
+}: SaleItemProps) => {
   const { toggleDrawer } = useDrawer();
   return (
     <>
