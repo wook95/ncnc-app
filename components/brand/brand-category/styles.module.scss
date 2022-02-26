@@ -1,0 +1,15 @@
+@import "@/styles/variable.scss";
+
+.nav-button {
+  font-size: 1.4rem;
+  color: $black;
+  cursor: pointer;
+  line-height: 1.2;
+  flex-shrink: 0;
+  padding: 1.1rem 0;
+}
+
+.active {
+  color: $highlight;
+  border-bottom: 0.2rem solid $highlight;
+}

@@ -22,7 +22,6 @@ const ItemDetail = ({ conItem }: ItemDetailProps): JSX.Element => {
   const [isActive, setIsActive] = useState(false);
   const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
   const router = useRouter();
-
   const openOption = () => {
     setIsActive(true);
     setSelectedOption(null);
@@ -53,14 +52,14 @@ const ItemDetail = ({ conItem }: ItemDetailProps): JSX.Element => {
       sellingPrice: option.sellingPrice,
     });
   });
-  const warningArray = conItem.warning.split('\n\n');
+  const warningArray = conItem.warning?.split('\n\n');
   const splitWarningArray = warningArray
-    .map(strings => strings.split(']\n'))
-    .map(
+    ?.map(strings => strings.split(']\n'))
+    ?.map(
       strings =>
         (strings = [
           strings[0].replace('[', ''),
-          strings[1].replaceAll('-', '·'),
+          strings[1]?.replace(/-/g, '·'),
         ]),
     );
 
@@ -77,14 +76,15 @@ const ItemDetail = ({ conItem }: ItemDetailProps): JSX.Element => {
           image={conItem.imageUrl}
         />
         <div className={cx('content-box')}>
-          {splitWarningArray.map(warning => {
-            return (
-              <div key={warning[0]}>
-                <div className={cx('content-title')}>{warning[0]}</div>
-                <div className={cx('content-paragraph')}>{warning[1]}</div>
-              </div>
-            );
-          })}
+          {splitWarningArray &&
+            splitWarningArray.map(warning => {
+              return (
+                <div key={warning[0]}>
+                  <div className={cx('content-title')}>{warning[0]}</div>
+                  <div className={cx('content-paragraph')}>{warning[1]}</div>
+                </div>
+              );
+            })}
         </div>
       </main>
       <section className={cx('option-section', { hide: !isActive })}>

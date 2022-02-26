@@ -5,6 +5,7 @@ import ItemBox from '@/components/item-box';
 import styles from '@/components/item-list/styles.module.scss';
 import { calcDiscountRate } from 'utils/calcDiscountRate';
 import { ConCategory2 } from '@/types/brand';
+import Link from 'next/link';
 
 interface ItemListProps {
   brandItem: ConCategory2;
@@ -22,14 +23,20 @@ const ItemList = (props: ItemListProps): JSX.Element => {
       </div>
 
       {brandItem.conItems.map((item, idx) => (
-        <ItemBox
-          key={idx}
-          name={item.name}
-          discount={calcDiscountRate(item.originalPrice, item.minSellingPrice)}
-          price={item.minSellingPrice}
-          original={item.originalPrice}
-          image={item.imageUrl}
-        />
+        <Link key={idx} href={`/items/${item.id}`}>
+          <a>
+            <ItemBox
+              name={item.name}
+              discount={calcDiscountRate(
+                item.originalPrice,
+                item.minSellingPrice,
+              )}
+              price={item.minSellingPrice}
+              original={item.originalPrice}
+              image={item.imageUrl}
+            />
+          </a>
+        </Link>
       ))}
     </div>
   );

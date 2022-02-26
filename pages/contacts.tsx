@@ -1,4 +1,4 @@
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import { useState } from 'react';
 
 import DefaultHeader from '@/components/headers/default-header';
@@ -22,7 +22,7 @@ function Contacts({ types, items }: { types: Category[]; items: ItemsObject }) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const types = await getFaqCategories();
   const items = await getFaqItems(types);
 

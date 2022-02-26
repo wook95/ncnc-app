@@ -2,11 +2,11 @@
 
 원티드 프리온보딩 부트캠프 - 더블엔씨 모바일 웹페이지 클론 과제 리포입니다.
 
-## 배포
+## 📌 배포
 
-- [배포링크](https://ncnc-app.vercel.app/)
+- [배포링크](https://ncnc-absolute.netlify.app/)
 
-## 요구 사항
+## 📌 요구 사항
 
 다음 페이지들을 클론하는 것이 이번 과제의 주된 요구사항이었습니다.
 
@@ -16,7 +16,7 @@
 - [제품별 상세설명 페이지](https://ncnc.app/items/137)
 - 사이드 메뉴
 
-## 기술 스택
+## 📌 기술 스택
 
 - NextJS
 - TypeScript
@@ -24,7 +24,7 @@
 - ESLint + Prettier
 - Cypress
 
-## 로컬 환경 구동
+## 📌 로컬 환경 구동
 
 프로젝트 클론
 
@@ -44,25 +44,22 @@
   npm install && npm run dev
 ```
 
-## 팀 소개
 
-## 팀원
+## 📌 팀원
+|[이욱창](https://github.com/wook95)|[김태희](https://github.com/tae100k)|[문현돈](https://github.com/hyundonny)|[이경은](https://github.com/2kyung19)|
+| ----- | ---- | ----- |  ----- |
+|<img src="https://avatars.githubusercontent.com/u/80494742?v=4" width="200"/>|<img src="https://avatars.githubusercontent.com/u/78027252?v=4" width="200" />| <img src="https://avatars.githubusercontent.com/u/10048956?v=4" width="200" />|<img src="https://avatars.githubusercontent.com/u/32586712?v=4" width="200" />
 
-| 이욱창                                                                                                     | 김태희                                                                                                     | 문현돈                                                                                                     | 이경은                                                                                                     |
-| :--------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| ![](https://user-images.githubusercontent.com/78027252/153702187-d9d6a705-9b36-4bc7-a178-7a0657893b4d.png) | ![](https://user-images.githubusercontent.com/78027252/153702225-f9c8fb23-b7af-454d-9c97-4b7119a06214.png) | ![](https://user-images.githubusercontent.com/78027252/153702229-2c97a545-a682-4867-b78e-5028c7774201.png) | ![](https://user-images.githubusercontent.com/78027252/153702159-776cb78e-59ca-4c0a-bab5-742f5998d4e0.png) |
-| [@wook95](https://github.com/wook95)                                                                       | [@tae100k](https://github.com/tae100k)                                                                     | [@hyundonny](https://github.com/hyundonny)                                                                 | [@2kyung19](https://github.com/2kyung19)                                                                   |
 
-## 팀원별 역할 및 회고
+## 📌 팀원별 역할 및 회고
 
 ### 김태희
 
 - 역할
-  - 리덕스 툴킷을 사용하여, 메시지 추가, 메시지 삭제, 메시지 정렬 등의 기능을 구현하는 역할을 맡았다.
-  - (구현) messageSlice에 add, delete액션을 만들었고, 커스텀 훅 useMessage를 통해 useSelector를, useMessageAction useDispatch를 할 수 있도록 구현하였다.
+   - 카테고리별 브랜드 페이지 구현 (Navbar구현, 그리드 구현, SSR을 통한 API 통신)
 - 회고
-  - 이번 프로젝트하면서 작성한 블로그 : [[김태희 - Messanger Service]](https://www.notion.so/7245b5bb8cf341a08513b483f2676de4)
-  - 메시지를 추가하면, 채팅 내용 + 유저 정보 형태로 메시지 데이터 모델을 추가해야 했다. 그래서 유저 정보 리덕스를 구현한 팀원에게 질문하고 설명을 들으면서 해결하였고, 이 때 협업의 중요함을 느꼈다. 이를 바탕으로 본인이 작성한 리덕스를 채팅창 코드에서 사용할 때는 팀원분이 해당 리덕스를 잘 이해하고 사용할 수 있도록 줌을 통해 의사소통하는 시간을 가졌다.
+  - 이번 프로젝트하면서 작성한 블로그 : [김태희 - 니콘내콘 사이트](https://www.notion.so/Nex-js-TS-SCSS-ncnc-bbfc68fd538c4665ac324c72bd4d73c0)
+
 
 ### 문현돈
 

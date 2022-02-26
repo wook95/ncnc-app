@@ -25,7 +25,6 @@ const ItemDetailPage: NextPage<ItemDetailProps> = ({
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   try {
     const { data } = await getProductDetail(Number(query.id));
-    console.log(data);
     return {
       props: { conItem: data.conItem },
     };
