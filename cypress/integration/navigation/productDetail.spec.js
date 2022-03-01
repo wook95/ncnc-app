@@ -1,4 +1,4 @@
-describe('My First Test', () => {
+describe('should navigate from homepage to the detail page', () => {
   it('should navigate from homepage to the detail page', () => {
     cy.visit('http://localhost:3000/');
     cy.get('p').contains('카페').click();
