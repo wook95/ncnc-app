@@ -1,27 +1,39 @@
+import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
+import Link from 'next/link';
 
 import ItemBox from '@/components/item-box';
 import Carousel from '@/components/main/carousel';
+import BrandGrid from '@/components/brand/brand-grid';
 
 import styles from '@/components/main/styles.module.scss';
 import { SaleItemType } from '@/types/saleItem';
 import { CategoryType } from '@/types/category';
-import BrandGrid from '@/components/brand/brand-grid';
-import Link from 'next/link';
-
-interface HomeProps {
-  saleItem: SaleItemType;
-  category: CategoryType;
-}
+import { getCategory, getSaleItem } from '@/lib/home-api';
 
 const cx = classNames.bind(styles);
 
-const Main = ({ saleItem, category }: HomeProps): JSX.Element => {
+const Main = (): JSX.Element => {
+  const [saleItem, setSaleItem] = useState<SaleItemType | null>(null);
+  const [category, setCategory] = useState<CategoryType | null>(null);
+
+  useEffect(() => {
+    const getAPI = async () => {
+      const saleItemResponse = await getSaleItem();
+      const categoryResponse = await getCategory();
+      if (saleItemResponse.data !== null && categoryResponse.data !== null) {
+        setSaleItem(saleItemResponse.data);
+        setCategory(categoryResponse.data);
+      }
+    };
+    getAPI();
+  }, []);
+
   return (
     <div>
       <Carousel />
       <div className={cx('category')}>
-        {category.conCategory1s.map((item, idx) => (
+        {category?.conCategory1s.map((item, idx) => (
           <Link
             key={idx}
             href={{
@@ -38,7 +50,7 @@ const Main = ({ saleItem, category }: HomeProps): JSX.Element => {
           <div className={cx('highlight')}>놓치지 마세요</div>
           <div className={cx('title')}>오늘의 땡처리콘!</div>
         </div>
-        {saleItem.conItems.map((item, idx) => (
+        {saleItem?.conItems.map((item, idx) => (
           <ItemBox
             key={idx}
             name={item.name}
