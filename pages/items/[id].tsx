@@ -1,7 +1,7 @@
 import { GetServerSideProps, NextPage } from 'next';
 
 import ItemDetail from '@/components/item-detail';
-import CenteredContainer from '@/components/centered-container';
+import ErrorContainer from '@/components/error-container';
 
 import { getProductDetail } from '@/lib/api';
 import { ItemDetailType } from '@/types/productDetail';
@@ -18,7 +18,7 @@ const ItemDetailPage: NextPage<ItemDetailProps> = ({
   return conItem ? (
     <ItemDetail conItem={conItem} />
   ) : (
-    <CenteredContainer message={errorMessage} />
+    <ErrorContainer message={errorMessage} />
   );
 };
 
@@ -30,7 +30,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     };
   } catch (e) {
     return {
-      props: { errorMessage: '잘못된 주소입니다.' },
+      props: { errorMessage: '잘못된 주소' },
     };
   }
 };

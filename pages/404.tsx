@@ -1,7 +1,7 @@
-import Custom404Component from '@/components/404';
+import ErrorContainer from '@/components/error-container';
 
 function Custom404() {
-  return <Custom404Component />;
+  return <ErrorContainer />;
 }
 
 export default Custom404;
